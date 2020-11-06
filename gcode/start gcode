@@ -1,8 +1,8 @@
-; Last updated 20200918
+; Last updated 20201105
 M300 S40 P10 ; chirp
 M862.3 P "[printer_model]" ; printer model check
 M862.1 P[nozzle_diameter] ; nozzle diameter check
-M115 U3.9.0 ; tell printer latest fw version
+M115 U3.9.1 ; tell printer latest fw version
 ; Set coordinate modes
 G90 ; use absolute coordinates
 M83 ; extruder relative mode
@@ -50,7 +50,7 @@ G92 E0.0 ; reset extrusion distance
 M221 S{if layer_height<0.075}100{else}95{endif}
 
 ; Don't change E values below. Excessive value can damage the printer.
-{if print_settings_id=~/(0.05mm ULTRADETAIL @MK3|0.07mm ULTRADETAIL @MK3|0.10mm DETAIL @MK3|0.15mm QUALITY @MK3|0.20mm QUALITY @MK3)/}M907 E430 ; set extruder motor current{endif}
-{if print_settings_id=~/(0.15mm SPEED @MK3|0.20mm SPEED @MK3|0.30mm DRAFT @MK3)/}M907 E538 ; set extruder motor current{endif}
+{if print_settings_id=~/.*(DETAIL @MK3|QUALITY @MK3).*/}M907 E430 ; set extruder motor current{endif}
+{if print_settings_id=~/.*(SPEED @MK3|DRAFT @MK3).*/}M907 E538 ; set extruder motor current{endif}
 ; Final print adjustments
 M300 S40 P10 ; chirp
