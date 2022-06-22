@@ -1,8 +1,8 @@
-; Last updated 20201105
+; Last updated 20220622
 M300 S40 P10 ; chirp
 M862.3 P "[printer_model]" ; printer model check
 M862.1 P[nozzle_diameter] ; nozzle diameter check
-M115 U3.9.1 ; tell printer latest fw version
+M115 U3.10.1 ; tell printer latest fw version
 ; Set coordinate modes
 G90 ; use absolute coordinates
 M83 ; extruder relative mode
